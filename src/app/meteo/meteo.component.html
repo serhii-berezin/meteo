@@ -1,0 +1,14 @@
+<mat-form-field>
+  <input matInput placeholder="enter location" #searchTerm />
+</mat-form-field>
+@if(searchTerm.value.length) {
+  <mat-card>
+      <mat-form-field>
+        <mat-select #type value="weather">
+            <mat-option value="weather">Current</mat-option>
+            <mat-option value="forecast">5 days</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <bm-meteo-data [city]="searchTerm.value" [type]="type.value" />
+  </mat-card>
+}

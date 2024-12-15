@@ -1,16 +1,20 @@
-import { Component } from '@angular/core';
+import { Component } from '@angular/core'
+import { MeteoComponent } from './meteo/meteo.component'
 
 @Component({
   selector: 'bm-root',
   standalone: true,
-  imports: [],
-  template: `
-    <h1>Welcome to {{title}}!</h1>
+  imports: [MeteoComponent],
+  template: `<bm-meteo />`,
+  styles: `
+    :host {
+      display: flex;
+      justify-content: center;
+    }
 
-    
+    bm-meteo {
+      width: 360px;
+    }
   `,
-  styles: [],
 })
-export class AppComponent {
-  title = 'berezin-meteo';
-}
+export class AppComponent {}

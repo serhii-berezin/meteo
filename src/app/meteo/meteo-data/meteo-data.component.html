@@ -1,0 +1,30 @@
+@if(isLoading) {
+  <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+}
+
+@if(errorMsg) {
+  Error: {{errorMsg}}
+}
+
+@if(meteoData$ | async; as data) {
+  @for(item of data; track item.dt) {
+    <div class="weather-item">
+      <div label="Date">
+        {{item.dt | date: 'short'}}
+      </div>
+      <div label="Temp">
+        {{item.temp}} ({{item.tempMin}}/{{item.tempMax}})
+      </div>
+      <div label="Humidity">
+        {{item.humidity}}
+      </div>
+      <div label="Description">
+        {{item.description}}
+      </div>
+    </div>
+  }
+  
+  @if (!data.length && !errorMsg) {
+    No data found.
+  }
+}

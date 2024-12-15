@@ -1,0 +1,8 @@
+:host {
+    --mdc-elevated-card-container-color: transparent;
+    --mdc-elevated-card-container-elevation: none;
+
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
